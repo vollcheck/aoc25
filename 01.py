@@ -40,6 +40,7 @@ def part2(steps: list[int]) -> int:
         amount = int(step[1:])
         # print(dir, amount)
 
+        # NOTE: it is a bruteforce solution, I'm not happy with it but it is what it is
         for _ in range(amount):
             if dir == "R":
                 state += 1
