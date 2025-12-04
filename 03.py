@@ -85,8 +85,8 @@ def main():
     print(f"[real] Part 2: {solve(max_number12, real_input)}")
     assert solve(max_number, test_input) == 357
     assert solve(max_number, real_input) == 17405
-    assert part2(test_input) == 3121910778619
-    assert part2(real_input) == 171990312704598
+    assert solve(max_number12, test_input) == 3121910778619
+    assert solve(max_number12, real_input) == 171990312704598
 
 
 if __name__ == "__main__":
