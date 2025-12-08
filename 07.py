@@ -48,33 +48,6 @@ def part1(grid: Grid) -> int:
     return times
 
 
-def part2(grid: Grid) -> int:
-    first_row = grid[0]
-    w = len(first_row)
-    h = len(grid)
-    starting_point = first_row.index("S")
-
-    q = [(starting_point, 1)]  # start from 2nd row
-    cnt = 0
-
-    # takes too much time, I guess it needs to be solved
-    # using dynamic programming + cache for visited paths
-    while len(q) > 0:
-        # print(f"current {cnt}")
-        x, y = q.pop()
-        if y >= h:
-            cnt += 1
-            continue
-        if grid[y][x] == "^":
-            if x-1 >= 0:  # left path
-                q.append((x-1, y+1))
-            if x+1 < w:   # right path
-                q.append((x+1, y+1))
-        else:  # simply go down
-            q.append((x, y+1))
-
-    return cnt
-
 def part2_recursive(grid: Grid) -> int:
     first_row = grid[0]
     w = len(first_row)
@@ -96,25 +69,24 @@ def part2_recursive(grid: Grid) -> int:
         else:
             candidates.append((x, y+1))  # simply go down
 
-        return sum(aux(x, y) for x, y in candidates)
+        return sum(aux(nx, ny) for nx, ny in candidates)
 
     return aux(starting_point, 1)
 
-# input = load_input()
-# print(part1(input))
-
-# input = load_input(test=False)
-# print(part1(input))
-
 
 input = load_input()
-print(part2(input))
+print(part1(input))
 
-# input = load_input(test=False)
-# print(part2(input))
+input = load_input(test=False)
+print(part1(input))
 
 input = load_input()
 print(part2_recursive(input))
 
 input = load_input(test=False)
 print(part2_recursive(input))
+
+# 21
+# 1656
+# 40
+# 76624086587804
