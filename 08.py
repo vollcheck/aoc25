@@ -25,6 +25,8 @@ def dist(c1: Coords, c2: Coords) -> float:
 
 
 
+# TODO: this is a classic union-find problem, let's revisit that in a while
+
 
 def part1(coords: list[Coords], limit: int = 10):
     # [(distance, c1, c2), ...]
